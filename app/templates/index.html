@@ -5,7 +5,6 @@
     {{%if title %}}
     <title>{{title}}</title>
     {%else%}
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcom to the best movie Review website</title>
 </head>
 <body>
@@ -13,8 +12,27 @@
     <h3>Popular Movies </h3>
     <ul>
         {% for popular_movie in popular %}
-        <li>{{ popular_movie.title}}</li>
+           <li>{{ popular_movie.title}}</li>
         {% endfor %}
     </ul>
+
+    
+    <!--upcoming movie in upcoming-->
+    <h3>Upcoming Movies</h3>
+    <ul>
+        {% for upcoming_movie in upcoming %}
+           <li>{{upcoming_movie.title}}</li>
+        {% endfor %}
+    </ul>
+
+    <!-- Now showing movie -->
+    <h3>Now Showing</h3>
+    <ul>
+        {% for now_showing_movie in now_showing %}
+            <li>{{ now_showing_movie.title}}</li>
+        {% endfor %}
+    </ul>
+
+
 </body>
 </html>
