@@ -1,4 +1,6 @@
-{% import 'macros.html' as macro%}
+{% extends "base.html" %}
+{% import 'macros.html' as macro %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,6 +11,11 @@
     <title>Welcom to the best movie Review website</title>
 </head>
 <body>
+
+     <!--content block-->
+     {% block content %}
+
+
     <!--popular movie section-->
     <h3>Popular Movies </h3>
     <ul>
