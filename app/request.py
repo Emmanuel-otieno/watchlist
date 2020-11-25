@@ -58,3 +58,22 @@ def process_results(movie_list):
 
 
     return movie_results
+
+
+
+def get_movie(id):
+    get_movie_details_url = base_url.format(id,api_key)
+    movie_details_response =json.loads(movie_details_data)
+
+    movie_object = None
+    if movie_details_response:
+        id = movie_details_response.get('id')
+        title =movie_details_response.get('original_title')
+        overview = movie_details_response.get('overview')
+        poster = movie_details_response.get('poster_path')
+        vote_average = movie_details_response.get('vote_average')
+        vote_count = movie_details_response.get('vote_count')
+
+        movie_object = movie(id,title,overview,poster,vote_average,vote_count)
+
+        return movie_object    
