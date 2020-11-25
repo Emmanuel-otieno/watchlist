@@ -1,3 +1,4 @@
+{% import 'macros.html' as macro%}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,26 +12,26 @@
     <!--popular movie section-->
     <h3>Popular Movies </h3>
     <ul>
-        {% for popular_movie in popular %}
-           <li>{{ popular_movie.title}}</li>
-        {% endfor %}
+        
+        <li>{{ macro.displayMovieList(popular)}}</li>
+        
     </ul>
 
-    
+
     <!--upcoming movie in upcoming-->
     <h3>Upcoming Movies</h3>
     <ul>
-        {% for upcoming_movie in upcoming %}
-           <li>{{upcoming_movie.title}}</li>
-        {% endfor %}
+
+      <li>{{macro.displayMovieList(upcoming)}}</li>
+        
     </ul>
 
     <!-- Now showing movie -->
     <h3>Now Showing</h3>
     <ul>
-        {% for now_showing_movie in now_showing %}
-            <li>{{ now_showing_movie.title}}</li>
-        {% endfor %}
+        
+     <li>{{ macro.displayMovieList(now_showing)}}</li>
+        
     </ul>
 
 
