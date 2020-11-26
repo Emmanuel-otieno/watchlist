@@ -1,6 +1,7 @@
-from flask import render_template
+from flask import render_template,redirect,url_for
 from app import app
 from .request import get_movies,get_movie,search_movie
+
 
 #views
 @app.route('/')
@@ -13,7 +14,12 @@ def index():
     upcoming_movie = get_movies('upcoming')
     now_showing_movie = get_movies('now_playing')
     title = 'Home - welcome to the best movie review website Online '
-    return render_template('index.html',title = title, popular = popular_movies,upcoming = upcoming_movie,now_showing = now_showing_movie )
+
+    search_movie = request.args.get('movie_query')
+    if search_movie:
+        return redirect(url_for('search',movie_name = search_movie))
+    else:
+        return render_template('index.html',title = title, popular = popular_movies,upcoming = upcoming_movie,now_showing = now_showing_movie )
 
 @app.route('/movie/<int:moive_id>')
 def movie(movie_id):
