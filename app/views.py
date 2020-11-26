@@ -25,3 +25,16 @@ def movie(movie_id):
 
 
     return render_template('movie.html',title = title,movie = movie)
+
+
+@app.route('/search/<movie_name>')
+def search(movie_name):
+    '''
+    View function to display the search results
+    '''
+    movie_name_list = movie_name.split(" ")
+    movie_name_format = "+".join(movie_name_list)
+    searched_movies = search_movie(movie_name_format)
+    title = f'search results for {movie_name}'
+    return render_template('search.html',movies = searched_movies)
+   
