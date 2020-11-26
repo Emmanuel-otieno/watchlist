@@ -1,9 +1,8 @@
 from app import app
 import urllib.request,json
-from .models import movie 
+from .models.movie import Movie 
 
 
-Movie = movie.Movie
 
 #Getting api key 
 
@@ -29,7 +28,7 @@ def get_movies(category):
         if  get_movies_response['results']:
             movie_results_list = get_movies_response['results']
             movie_results = process_results(movie_results_list)
-
+            
     return movie_results
 
 def process_results(movie_list):
